@@ -70,7 +70,7 @@ public class Utility {
         }
         catch (Exception e)
         {
-            log.info("Element " + element + " bulunamadı.");
+            log.info("Element " + element + " bulunamadi.");
             isClick = false;
         }
         return isClick;
@@ -84,7 +84,7 @@ public class Utility {
         }
         catch (Exception e)
         {
-            log.info("Element " + element + " bulunamadı.");
+            log.info("Element " + element + " bulunamadi.");
             isVisible = false;
         }
         return isVisible;
@@ -99,7 +99,7 @@ public class Utility {
         }
         catch (Exception e)
         {
-            log.info("Element " + element + " bulunamadı.");
+            log.info("Element " + element + " bulunamadi.");
             return null;
         }
     }
