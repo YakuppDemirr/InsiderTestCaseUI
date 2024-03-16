@@ -5,6 +5,7 @@ import org.apache.log4j.*;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import static com.insider.core.PropertiesFile.*;
+import static com.insider.database.MySqlConnection.insertMySql;
 import static com.insider.util.Utility.*;
 
 public class Base extends DriverManager {
@@ -22,10 +23,27 @@ public class Base extends DriverManager {
     @AfterMethod
     public void tearDown(ITestResult result) {
 
-        if (ITestResult.FAILURE == result.getStatus())
+        String testName = result.getName();
+        String instanceName = result. getInstanceName();
+        String status = "";
+
+        if (result.getStatus() == ITestResult.FAILURE)
         {
             takeScreenShot(driver,result.getName());
+            status = "FAIL";
+            String stackTrace = result.getThrowable().toString();
+            System.out.println(stackTrace);
         }
+         else if (result.getStatus() == ITestResult.SUCCESS) {
+            status = "SUCCESS";
+
+        } else if (result.getStatus() == ITestResult.SKIP) {
+            status = "SKIP";
+        }
+         //Testin süresi ms cinsinden alınır
+         String duration = String.valueOf(result.getEndMillis() - result.getStartMillis());
+
+        insertMySql(testName,instanceName, status, duration);
         log.info("*** Browser kapatildi. ***");
         quitDriver();
     }

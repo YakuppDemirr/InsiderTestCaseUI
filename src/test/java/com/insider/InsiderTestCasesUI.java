@@ -23,5 +23,10 @@ public class InsiderTestCasesUI extends Base {
         goToCareersPageControl();
         goJobDetails();
     }
+
+    @Test()
+    public void insiderStudyCase2(){
+        goToHomePage();
+    }
 }
 
