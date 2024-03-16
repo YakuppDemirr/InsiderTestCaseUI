@@ -1,0 +1,24 @@
+pipeline:
+  agent:
+    docker:
+      image: maven:latest  # Maven ve Java'yı içeren bir Docker görüntüsü kullanılabilir
+
+  environment:
+    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"  # Java JDK yolunu belirtin
+
+  stages:
+    - stage: Clone_Repository
+      steps:
+        - checkout scm  # Jenkins tarafından sağlanan kod deposunu klonlayın
+
+    - stage: Build
+      steps:
+        - sh 'mvn clean install'  # Maven kullanarak projeyi derleme işlemi
+
+    - stage: Test
+      steps:
+        - sh 'mvn test'  # TestNG testlerini çalıştırma işlemi
+
+    - stage: Deploy
+      steps:
+        - sh 'mvn deploy'  # Gerekirse projeyi dağıtma işlemi
