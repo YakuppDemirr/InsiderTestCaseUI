@@ -22,7 +22,7 @@ jobs:
           curl -fsSL -o apache-maven-3.8.4-bin.zip https://downloads.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.zip
           mkdir maven
           Expand-Archive -Path "apache-maven-3.8.4-bin.zip" -DestinationPath "C:\extract\destination\folder"
-          Export-Clixml -Path "C:\path\to\output.xml"
+          $myVariable | Export-Clixml -Path "C:\path\to\output.xml"
 
       - name: Install Chrome
         run: |
