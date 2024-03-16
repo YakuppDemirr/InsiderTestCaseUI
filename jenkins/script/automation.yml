@@ -8,6 +8,3 @@ pipeline:
         - stage: Build and test
           steps:
               - sh: 'mvn clean test'
-    post:
-        always:
-            junit: 'target/surefire-reports/*.xml'
