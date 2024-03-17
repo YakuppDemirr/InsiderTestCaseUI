@@ -18,14 +18,14 @@ public class MySqlConnection {
         }
         return conn;
     }
-    public static void insertMySql(String testName, String testInstanceName, String testStatus, String testDuration) {
+    public static void insertMySql(String testName, String testInstanceName, String testStatus, String testDuration, String stackTrace) {
 
         Connection conn =  getConnection();
         PreparedStatement pstmt = null;
 
         try {
             // SQL sorgusu hazirlanir
-            String sql = "INSERT INTO testdb.AutomationReports (TestName, TestInstanceName,TestStatus, TestDuration) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO testdb.AutomationReports (TestName, TestInstanceName,TestStatus, TestDuration, StackTrace) VALUES (?,?,?,?,?)";
             pstmt = conn.prepareStatement(sql);
 
             // Parametreler set edilir
@@ -33,6 +33,7 @@ public class MySqlConnection {
             pstmt.setString(2, testInstanceName);
             pstmt.setString(3, testStatus);
             pstmt.setString(4, testDuration);
+            pstmt.setString(5, stackTrace);
 
             // Sorguyu çalıştır
             int affectedRows = pstmt.executeUpdate();

@@ -26,12 +26,13 @@ public class Base extends DriverManager {
         String testName = result.getName();
         String instanceName = result. getInstanceName();
         String status = "";
+        String stackTrace = "";
 
         if (result.getStatus() == ITestResult.FAILURE)
         {
             takeScreenShot(driver,result.getName());
             status = "FAIL";
-            String stackTrace = result.getThrowable().toString();
+            stackTrace = result.getThrowable().toString();
             System.out.println(stackTrace);
         }
          else if (result.getStatus() == ITestResult.SUCCESS) {
@@ -43,8 +44,8 @@ public class Base extends DriverManager {
          //Testin süresi ms cinsinden alınır
          String duration = String.valueOf(result.getEndMillis() - result.getStartMillis());
 
-        insertMySql(testName,instanceName, status, duration);
-        log.info("*** Browser kapatildi. ***");
+        insertMySql(testName,instanceName, status, duration, stackTrace);
         quitDriver();
+        log.info("*** Browser kapatildi. ***");
     }
 }
