@@ -6,7 +6,7 @@ pipeline:
           - push
           - pull_request
         branches:
-          - main
+          - 'main'
   stages:
     - stage: Build
       steps:
