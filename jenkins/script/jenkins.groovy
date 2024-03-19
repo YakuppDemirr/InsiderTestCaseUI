@@ -1,8 +1,8 @@
 pipeline {
     agent any
     triggers {
-        githubPush()
-        githubPullRequest()
+        githubPush(branch: 'main')
+        githubPullRequest(branch: 'main')
     }
     stages {
         stage('Build') {
@@ -15,6 +15,12 @@ pipeline {
             steps {
                 echo "Running tests..."
                 sh "mvn test"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "Deploying the project..."
+                // Add deployment steps here
             }
         }
     }
