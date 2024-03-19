@@ -1,23 +1,26 @@
 pipeline {
     agent any
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+    }
     triggers {
         github {
-            events = ['push', 'pull_request']
-            branches = 'main'
+            events('push', 'pull_request')
+            branches('main')
         }
     }
     stages {
         stage('Build') {
             steps {
                 script {
-                    mvn 'clean install'
+                    sh 'mvn clean install'
                 }
             }
         }
         stage('Test') {
             steps {
                 script {
-                    mvn 'test'
+                    sh 'mvn test'
                 }
             }
         }
