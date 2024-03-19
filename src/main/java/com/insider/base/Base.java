@@ -5,7 +5,7 @@ import org.apache.log4j.*;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import static com.insider.core.PropertiesFile.*;
-import static com.insider.database.MySqlConnection.insertMySql;
+import static com.insider.database.MySqlConnection.*;
 import static com.insider.util.Utility.*;
 
 public class Base extends DriverManager {

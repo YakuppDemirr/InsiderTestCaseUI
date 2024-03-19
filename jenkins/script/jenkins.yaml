@@ -1,0 +1,20 @@
+pipeline:
+  agent: any
+  triggers:
+    - github:
+        events:
+          - push
+          - pull_request
+        branches:
+          - 'main'
+  stages:
+    - stage: Build
+      steps:
+        - script:
+            - echo "Building the project..."
+            - mvn clean install
+    - stage: Test
+      steps:
+        - script:
+            - echo "Running tests..."
+            - mvn test
