@@ -1,17 +1,18 @@
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building the project...'
-                bat 'mvn clean install'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                bat 'mvn test'
-            }
-        }
-    }
-}
+pipeline:
+  agent: any
+  triggers:
+    - github:
+        events:
+          - push
+          - pull_request
+        branches:
+          - 'main'
+  stages:
+    - stage: Build
+      steps:
+        - script:
+            - mvn clean install
+    - stage: Test
+      steps:
+        - script:
+            - mvn test
