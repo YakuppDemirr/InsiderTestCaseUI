@@ -1,24 +1,16 @@
 pipeline {
     agent any
-    triggers {
-        github {
-            events('push', 'pull_request')
-            branches('main')
-        }
-    }
     stages {
         stage('Build') {
             steps {
-                script {
-                    sh 'mvn clean install'
-                }
+                // Maven ile proje yapılandırması ve derleme
+                sh 'mvn clean compile'
             }
         }
         stage('Test') {
             steps {
-                script {
-                    sh 'mvn test'
-                }
+                // Selenium testlerini çalıştır
+                sh 'mvn test'
             }
         }
     }
