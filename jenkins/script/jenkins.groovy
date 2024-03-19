@@ -1,8 +1,7 @@
 pipeline {
     agent any
     triggers {
-        github(gitHubPush())
-        github(gitHubPullRequest())
+        githubPush(branch: 'main')
     }
     stages {
         stage('Build') {
