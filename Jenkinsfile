@@ -1,18 +1,18 @@
 pipeline {
     agent any
+
     stages {
         stage('Build') {
             steps {
-                script {
-                    'mvn clean install'
-                }
+                // Maven'ı çalıştırmak için bat dosyasını çağır
+                dir ('C:/ProgramData/Jenkins/.jenkins/workspace/InsiderTestCaseUIPipeline')
+                bat 'mvn clean compile'
             }
         }
         stage('Test') {
             steps {
-                script {
-                    'mvn test'
-                }
+                // Maven'ı testleri çalıştırmak için çağır
+                bat 'mvn test'
             }
         }
     }
