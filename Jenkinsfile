@@ -3,14 +3,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Maven ile proje yapılandırması ve derleme
-                sh 'mvn clean compile'
+                script {
+                    'mvn clean install'
+                }
             }
         }
         stage('Test') {
             steps {
-                // Selenium testlerini çalıştır
-                sh 'mvn test'
+                script {
+                    'mvn test'
+                }
             }
         }
     }
