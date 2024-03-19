@@ -2,6 +2,7 @@ pipeline {
     agent any
     options {
         buildDiscarder(logRotator(numToKeepStr: '10'))
+        skipDefaultCheckout() // Bu opsiyonel, eğer gerekliyse ekleyin.
     }
     triggers {
         github {
@@ -13,14 +14,14 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'mvn clean install'
+                     clean install
                 }
             }
         }
         stage('Test') {
             steps {
                 script {
-                    sh 'mvn test'
+                     mvn test
                 }
             }
         }
