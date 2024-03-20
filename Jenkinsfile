@@ -2,14 +2,10 @@ pipeline {
     agent any
     
     stages {
-        stage('Build') {
+        stage('Build') { 
             steps {
                 script {
-                    // Maven projesinin bulunduğu dizine git
-                    dir('/Users/yakup.demir/Desktop/InsiderTestCasesUI-main') {
-                        // Maven komutunu çalıştır: temizle ve yükle
-                        sh 'mvn clean install'
-                    }
+                   sh 'mvn clean install'
                 }
             }
         }
@@ -17,10 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    // Maven projesinin bulunduğu dizine git
-                    dir('/Users/yakup.demir/Desktop/InsiderTestCasesUI-main') {
-                        // Maven komutunu çalıştır: test et
-                        sh 'mvn test'
+                    sh 'mvn test'
                     }
                 }
             }
