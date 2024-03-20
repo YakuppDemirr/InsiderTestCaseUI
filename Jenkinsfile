@@ -1,15 +1,18 @@
 pipeline {
     agent any
-
+    
     stages {
         stage('Build') {
             steps {
-                mvn clean install
+                script {
+                    // Maven komutlarını çalıştır
+                    sh 'mvn clean install'
+                }
             }
         }
         stage('Test') {
             steps {
-                mvn test
+                sh 'mvn test'
             }
         }
     }
