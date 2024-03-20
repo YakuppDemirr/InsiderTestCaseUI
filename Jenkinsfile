@@ -1,11 +1,9 @@
 pipeline {
     agent any
     
-    triggers {
-        github {
-            events: [push, pull_request]
-            branches: ['main']
-        }
+    parameters {
+        githubPushTrigger(enabled: true)
+        githubPullRequestTrigger(enabled: true, triggerPhrase: 'run tests')
     }
     
     stages {
