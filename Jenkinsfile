@@ -1,11 +1,6 @@
 pipeline {
     agent any
     
-    parameters {
-        githubPushTrigger(enabled: true)
-        githubPullRequestTrigger(enabled: true, triggerPhrase: 'run tests')
-    }
-    
     stages {
         stage('Build') {
             steps {
