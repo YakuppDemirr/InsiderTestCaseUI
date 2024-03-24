@@ -5,16 +5,16 @@ pipeline {
         stage('Build') {
             steps {
                 // Maven'ı çalıştırmak için bat dosyasını çağır
-                dir ('C:/ProgramData/Jenkins/.jenkins/workspace/InsiderTestCaseUIPipeline') {
-                    bat 'mvn clean compile'
+                dir ('C:/Users/Yakup Demir/Desktop/InsiderTest') {
+                    sh 'mvn clean install'
                 }
             }
         }
         stage('Test') {
             steps {
                 // Maven'ı testleri çalıştırmak için çağır
-                dir ('C:/ProgramData/Jenkins/.jenkins/workspace/InsiderTestCaseUIPipeline') {
-                    bat 'mvn test'
+                dir ('C:/Users/Yakup Demir/Desktop/InsiderTest') {
+                    sh 'mvn test'
                 }
             }
         }
