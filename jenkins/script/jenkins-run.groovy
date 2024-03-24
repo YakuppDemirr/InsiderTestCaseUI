@@ -24,7 +24,8 @@ pipeline {
                             allowMissing: false,
                             alwaysLinkToLastBuild: true,
                             keepAll: true,
-                            reportDir: '**/target/surefire-reports/*.html',
+                            reportDir: 'C:/Users/Yakup Demir/Desktop/InsiderTest/target/surefire-reports/',
+                            reportFiles: 'index.html',
                             reportName: 'HTML Test Report'
                     ])
                 }
