@@ -4,17 +4,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Maven'ı çalıştırmak için bat dosyasını çağır
-                dir ('C:/Users/Yakup Demir/Desktop/InsiderTest') {
-                    sh 'mvn clean install'
+                withMaven(maven : 'apache-maven-3.6.1') {
+                    bat'mvn clean compile'
                 }
             }
         }
         stage('Test') {
             steps {
-                // Maven'ı testleri çalıştırmak için çağır
-                dir ('C:/Users/Yakup Demir/Desktop/InsiderTest') {
-                    sh 'mvn test'
+                withMaven(maven : 'apache-maven-3.6.1') {
+                    bat 'mvn test'
                 }
             }
         }
