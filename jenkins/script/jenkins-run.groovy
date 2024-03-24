@@ -19,7 +19,7 @@ pipeline {
         stage('Results') {
             steps {
                 dir ('C:/Users/Yakup Demir/Desktop/InsiderTest') {
-                    junit '/target/surefire-reports/testng-results.xml'
+                    junit '**/target/surefire-reports/*.xml'
                 }
             }
         }
