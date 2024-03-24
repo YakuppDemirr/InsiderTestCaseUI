@@ -18,8 +18,7 @@ pipeline {
         }
         stage('Results') {
             steps {
-                echo 'Test raporlama adımı'
-                junit '**/target/surefire-reports/*.xml'
+                testng '**/target/surefire-reports/testng-results.xml'
             }
         }
     }
