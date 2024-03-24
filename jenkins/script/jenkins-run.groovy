@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    triggers {
-        scm '*/main'
-        pullRequest()
-    }
-
     stages {
         stage('Build') {
             steps {
