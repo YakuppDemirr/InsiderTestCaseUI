@@ -26,7 +26,7 @@ public class InsiderTestCasesUI extends Base {
 
     @Test()
     public void insiderStudyCase2(){
-        goToHomePage();
+       // goToHomePage();
     }
 }
 

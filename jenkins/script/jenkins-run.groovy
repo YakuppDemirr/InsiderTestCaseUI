@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Results') {
             steps {
-                junit '**/target/surefire-reports/testng-results.xml'
+                junit '/target/surefire-reports/testng-results.xml'
             }
         }
     }
