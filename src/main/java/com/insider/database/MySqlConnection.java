@@ -15,6 +15,7 @@ public class MySqlConnection {
         }
         return conn;
     }
+
     public static void insertMySql(String testName, String testInstanceName, String testStatus, String testDuration, String stackTrace) {
 
         Connection conn =  getConnection();
@@ -36,9 +37,9 @@ public class MySqlConnection {
             int affectedRows = pstmt.executeUpdate();
 
             if (affectedRows > 0) {
-                System.out.println("Veri eklendi.");
+                System.out.println("Test sonucu veri tabanina eklendi...");
             } else {
-                System.out.println("Veri eklenemedi.");
+                System.out.println("Test sonucu veri tabanina eklenemedi...");
             }
         } catch (SQLException e) {
             e.printStackTrace();

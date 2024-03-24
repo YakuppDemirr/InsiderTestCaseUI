@@ -15,12 +15,12 @@ public class DriverManager {
     public static void setUpDriver(String browserType){
         switch (browserType){
             case "chrome":
-                log.info("*** Launching Chrome Browser ***");
+                log.info("*** Chrome Browser Baslatiliyor ***");
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
                 break;
             case "firefox":
-                log.info("*** Launching Firefox Browser ****");
+                log.info("*** Firefox Browser Baslatiliyor ****");
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
                 break;

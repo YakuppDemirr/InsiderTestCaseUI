@@ -18,15 +18,10 @@ public class InsiderTestCasesUI extends Base {
         log.info("*** Ana sayfa basarili bir sekilde acildi. ***");
     }
 
-   /* @Test()
+    @Test()
     public void insiderStudyCase(){
         goToCareersPageControl();
         goJobDetails();
-    }*/
-
-    @Test()
-    public void insiderStudyCase2(){
-       // goToHomePage();
     }
 }
 
