@@ -20,6 +20,13 @@ pipeline {
             steps {
                 dir ('C:/Users/Yakup Demir/Desktop/InsiderTest') {
                     junit '**/target/surefire-reports/*.xml'
+                    publishHTML(target: [
+                            allowMissing: false,
+                            alwaysLinkToLastBuild: true,
+                            keepAll: true,
+                            reportDir: '**/target/surefire-reports/',
+                            reportFiles: 'index.html'
+                    ])
                 }
             }
         }
