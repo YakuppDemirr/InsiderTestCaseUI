@@ -5,8 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 // Maven'ı çalıştırmak için bat dosyasını çağır
+                echo 'Deneme - 1'
                 dir ('C:/Users/Yakup Demir/Desktop/InsiderTest') {
-                    sh 'mvn clean install'
+                    echo 'Deneme - 2'
+                    bat 'mvn clean install'
                 }
             }
         }
@@ -14,7 +16,7 @@ pipeline {
             steps {
                 // Maven'ı testleri çalıştırmak için çağır
                 dir ('C:/Users/Yakup Demir/Desktop/InsiderTest') {
-                    sh 'mvn test'
+                    bat 'mvn test'
                 }
             }
         }
