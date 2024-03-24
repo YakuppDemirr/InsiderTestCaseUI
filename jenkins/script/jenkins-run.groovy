@@ -16,5 +16,11 @@ pipeline {
                 }
             }
         }
+        stage('Results') {
+            steps {
+                echo 'Test raporlama adımı'
+                junit '**/target/surefire-reports/*.xml'
+            }
+        }
     }
 }
