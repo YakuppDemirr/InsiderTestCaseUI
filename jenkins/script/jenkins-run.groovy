@@ -18,7 +18,9 @@ pipeline {
         }
         stage('Results') {
             steps {
-                junit 'C:/Users/Yakup Demir/Desktop/InsiderTest/target/surefire-reports/testng-results.xml'
+                dir ('C:/Users/Yakup Demir/Desktop/InsiderTest') {
+                    junit '/target/surefire-reports/testng-results.xml'
+                }
             }
         }
     }
